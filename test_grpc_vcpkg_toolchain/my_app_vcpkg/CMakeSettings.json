@@ -1,0 +1,62 @@
+﻿{
+    "configurations": [
+        {
+            "name": "x64-Debug",
+            "generator": "Ninja",
+            "configurationType": "Debug",
+            "inheritEnvironments": [ "msvc_x64_x64" ],
+            "buildRoot": "${projectDir}\\out\\build\\${name}",
+            "installRoot": "${projectDir}\\out\\install\\${name}",
+            "cmakeCommandArgs": "",
+            "buildCommandArgs": "",
+            "ctestCommandArgs": "",
+            "variables": [
+                {
+                    "name": "CMAKE_TOOLCHAIN_FILE",
+                    "value": "C:/CodeProjects/grpc_toolchain_setup/test_grpc_vcpkg_toolchain/vcpkg/scripts/buildsystems/vcpkg.cmake"
+                },
+                {
+                    "name": "VCPKG_TARGET_TRIPLET",
+                    "value": "x64-windows-static"
+                },
+                {
+                    "name": "CMAKE_MSVC_RUNTIME_LIBRARY",
+                    "value": "MultiThreadedDebug"
+                },
+                {
+                    "name": "CMAKE_CXX_STANDARD",
+                    "value": "17"
+                }
+            ]
+        },
+		{
+			"name": "x64-Release",
+			"generator": "Ninja",
+			"configurationType": "Release",
+			"inheritEnvironments": [ "msvc_x64_x64" ],
+			"buildRoot": "${projectDir}\\out\\build\\${name}",
+			"installRoot": "${projectDir}\\out\\install\\${name}",
+			"cmakeCommandArgs": "",
+			"buildCommandArgs": "",
+			"ctestCommandArgs": "",
+			"variables": [
+				{
+					"name": "CMAKE_TOOLCHAIN_FILE",
+                    "value": "C:/CodeProjects/grpc_toolchain_setup/test_grpc_vcpkg_toolchain/vcpkg/scripts/buildsystems/vcpkg.cmake"
+				},
+				{
+					"name": "VCPKG_TARGET_TRIPLET",
+					"value": "x64-windows-static"
+				},
+				{
+					"name": "CMAKE_MSVC_RUNTIME_LIBRARY",
+					"value": "MultiThreaded"
+				},
+				{
+                    "name": "CMAKE_CXX_STANDARD",
+                    "value": "17"
+                }
+			]
+		}
+    ]
+}

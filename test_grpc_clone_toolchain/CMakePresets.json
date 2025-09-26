@@ -1,0 +1,86 @@
+{
+  "version": 5,
+  "configurePresets": [
+    {
+      "name": "vs-2022-x64-release",
+      "displayName": "Windows | VS 2022 | x64 | Release",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "toolset": "v143",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "C:/code/test_grpc_toolchain/install/grpc-1.74-static",
+        "CMAKE_CXX_STANDARD": "17",
+        "ABSL_PROPAGATE_CXX_STD": "ON",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>"
+      }
+    },
+    {
+      "name": "vs-2022-x64-debug",
+      "displayName": "Windows | VS 2022 | x64 | Debug",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "toolset": "v143",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_PREFIX_PATH": "C:/code/test_grpc_toolchain/install/grpc-1.74-static",
+        "CMAKE_CXX_STANDARD": "17",
+        "ABSL_PROPAGATE_CXX_STD": "ON",
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>"
+      }
+    },
+    {
+      "name": "linux-clang-release",
+      "displayName": "Linux | Clang+Ninja | Release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_CXX_STANDARD": "17",
+        "ABSL_PROPAGATE_CXX_STD": "ON",
+        "CMAKE_PREFIX_PATH": "/home/gal/code/test_grpc_toolchain/install/grpc-1.74-static-release"
+      }
+    },
+    {
+      "name": "linux-clang-debug",
+      "displayName": "Linux | Clang+Ninja | Debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_CXX_STANDARD": "17",
+        "ABSL_PROPAGATE_CXX_STD": "ON",
+        "CMAKE_PREFIX_PATH": "/home/gal/code/test_grpc_toolchain/install/grpc-1.74-static-debug"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "vs-2022-x64-release-build",
+      "displayName": "Build (Windows Release)",
+      "configurePreset": "vs-2022-x64-release",
+      "configuration": "Release"
+    },
+    {
+      "name": "vs-2022-x64-debug-build",
+      "displayName": "Build (Windows Debug)",
+      "configurePreset": "vs-2022-x64-debug",
+      "configuration": "Debug"
+    },
+    {
+      "name": "linux-clang-release-build",
+      "displayName": "Build (Linux Release)",
+      "configurePreset": "linux-clang-release"
+    },
+    {
+      "name": "linux-clang-debug-build",
+      "displayName": "Build (Linux Debug)",
+      "configurePreset": "linux-clang-debug"
+    }
+  ],
+  "testPresets": []
+}
