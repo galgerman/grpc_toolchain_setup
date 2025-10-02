@@ -1,12 +1,12 @@
 @echo off
 setlocal enabledelayedexpansion
 
-set ROOT=C:\CodeProjects\grpc_toolchain_setup\test_grpc_vcpkg_toolchain
+set ROOT=C:\vcpkg_2
 set VCPKG=%ROOT%\vcpkg
 set TARGET_TRIPLET=x64-windows-static
 set HOST_TRIPLET=x64-windows
 set PACKAGES_TARGET=protobuf:%TARGET_TRIPLET% grpc:%TARGET_TRIPLET%
-set PACKAGES_HOST=protobuf:%HOST_TRIPLET% grpc:%HOST_TRIPLET%
+set PACKAGES_HOST=protobuf:%HOST_TRIPLET% grpc[codegen]:%HOST_TRIPLET%
 
 where git >nul 2>nul || (echo [ERROR] git not found on PATH & exit /b 1)
 

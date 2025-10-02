@@ -2,14 +2,41 @@ syntax = "proto3";
 
 package hello;
 
-service Greeter {
-  rpc SayHello (HelloRequest) returns (HelloReply);
+
+enum OPCode{
+	int32 code = 1;
 }
 
-message HelloRequest {
-  string name = 1;
+enum EMsgType{
+	string type = 1;
 }
 
-message HelloReply {
-  string message = 1;
+message Header{
+	OPCode message_id = 1;
+	EMsgType message_type = 2;
+    string session_id = 3;
+    int64 timestamp = 4;
+}
+
+
+message InputMessage {
+  string content = 1;
+}
+message OutputMessage {
+  string content = 1;
+}
+
+
+message EnvelopeInput {
+  Header header = 1;
+  InputMessage message = 2;
+}
+
+message EnvelopeOutput {
+  Header header = 1;
+  OutputMessage message = 2;
+}
+
+service AIPC {
+  rpc RunEnvelope (EnvelopeInput) returns (EnvelopeOutput);
 }
